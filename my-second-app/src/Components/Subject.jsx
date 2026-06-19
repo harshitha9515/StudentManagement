@@ -8,19 +8,19 @@ function Subject() {
   const [subjects, setSubjects] = useState([]);
 
   const fetchSubjects = async () => {
-    const res = await axios.get("http://localhost:9098/subjects");
+    const res = await axios.get("https://studentmanagement-ew1r.onrender.com/subjects");
     setSubjects(res.data);
   };
 
   const addSubject = async () => {
-    await axios.post("http://localhost:9098/subject", { subjectName });
+    await axios.post("https://studentmanagement-ew1r.onrender.com/subject", { subjectName });
     setSubjectName("");
     fetchSubjects();
   };
 
   const deleteSubject = async (id) => {
     if (window.confirm("Delete this subject?")) {
-      await axios.delete(`http://localhost:9098/subject/${id}`);
+      await axios.delete(`https://studentmanagement-ew1r.onrender.com/subject/${id}`);
       fetchSubjects();
     }
   };
@@ -31,7 +31,7 @@ function Subject() {
       return;
     }
     const res = await axios.get(
-      `http://localhost:9098/subject/search?name=${name}`
+      `https://studentmanagement-ew1r.onrender.com/subject/search?name=${name}`
     );
     setSubjects(res.data);
   };

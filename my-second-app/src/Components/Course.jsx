@@ -8,20 +8,20 @@ function Course() {
   const [courses, setCourses] = useState([]);
 
   const fetchCourses = async () => {
-    const res = await axios.get("http://localhost:9098/courses");
+    const res = await axios.get("https://studentmanagement-ew1r.onrender.com/courses");
     setCourses(res.data);
   };
 
   const addCourse = async () => {
     if (!courseName.trim()) return;
-    await axios.post("http://localhost:9098/course", { courseName });
+    await axios.post("https://studentmanagement-ew1r.onrender.com/course", { courseName });
     setCourseName("");
     fetchCourses();
   };
 
   const deleteCourse = async (id) => {
     if (window.confirm("Delete this course?")) {
-      await axios.delete(`http://localhost:9098/course/${id}`);
+      await axios.delete(`https://studentmanagement-ew1r.onrender.com/course/${id}`);
       fetchCourses();
     }
   };
@@ -32,7 +32,7 @@ function Course() {
       return;
     }
     const res = await axios.get(
-      `http://localhost:9098/course/search?name=${name}`
+      `https://studentmanagement-ew1r.onrender.com/course/search?name=${name}`
     );
     setCourses(res.data);
   };

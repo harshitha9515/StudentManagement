@@ -14,7 +14,7 @@ function Login(){
     }
    async function submitDetails(){
     try{
-     const res= await axios.post("http://localhost:9098/login",loginUser)
+     const res= await axios.post("https://studentmanagement-ew1r.onrender.com/login",loginUser)
      console.log(res.data)
      alert("User Login SuccessFull")
      localStorage.setItem("user",JSON.stringify(res.data))
